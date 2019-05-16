@@ -9,11 +9,12 @@ import ArrowDown from 'react-icons/lib/fa/arrow-down';
 
 export const generateFakeData = ({ totalRows }) => {
     let data = [];
-    for(let i = 0; i < totalRows; i++) {
+    for (let i = 0; i < totalRows; i++) {
         data.push(
             {
                 firstName: faker.name.firstName(),
                 lastName: faker.name.lastName(),
+                age: faker.random.number({ min: 10, max: 65 }),
                 email: faker.internet.email(),
                 address: faker.address.streetAddress(),
                 date: moment(faker.date.past()).format('MM/DD/YYYY'),
@@ -41,14 +42,15 @@ export const getColumns = () => {
     return [
         { accessor: 'firstName', label: 'First Name', priorityLevel: 1, position: 1, minWidth: 150, },
         { accessor: 'lastName', label: 'Last Name', priorityLevel: 2, position: 2, minWidth: 150, },
-        { accessor: 'email', label: 'Email', priorityLevel: 3, position: 3, minWidth: 250, },
-        { accessor: 'address', label: 'Address', priorityLevel: 4, position: 4, minWidth: 150, },
-        { accessor: 'date', label: 'Date', priorityLevel: 3, position: 6, minWidth: 150, sortType: 'date', },
-        { accessor: 'city', label: 'City', priorityLevel: 9, position: 5, minWidth: 120, },
+        { accessor: 'age', label: 'Age', priorityLevel: 3, position: 3, minWidth: 50 },
+        { accessor: 'email', label: 'Email', priorityLevel: 4, position: 4, minWidth: 250, },
+        { accessor: 'address', label: 'Address', priorityLevel: 4, position: 5, minWidth: 150, },
+        { accessor: 'date', label: 'Date', priorityLevel: 3, position: 7, minWidth: 150, sortType: 'date', },
+        { accessor: 'city', label: 'City', priorityLevel: 9, position: 6, minWidth: 120, },
         { accessor: 'state', label: 'State', priorityLevel: 6, position: 6, minWidth: 100, },
-        { accessor: 'country', label: 'Country', priorityLevel: 8, position: 7, minWidth: 120, },
-        { accessor: 'zipCode', label: 'Zip Code', priorityLevel: 7, position: 8, minWidth: 50, },
-        { accessor: 'bio', label: 'Bio', priorityLevel: 5, position: 9, minWidth: 300, },
+        { accessor: 'country', label: 'Country', priorityLevel: 8, position: 8, minWidth: 120, },
+        { accessor: 'zipCode', label: 'Zip Code', priorityLevel: 7, position: 9, minWidth: 50, },
+        { accessor: 'bio', label: 'Bio', priorityLevel: 5, position: 10, minWidth: 300, },
     ]
 };
 
@@ -56,13 +58,14 @@ export const getColumnsCustomComponents = () => {
     return [
         { accessor: 'firstName', label: 'First Name', priorityLevel: 1, position: 1, minWidth: 150, },
         { accessor: 'lastName', label: 'Last Name', priorityLevel: 7, position: 2, minWidth: 150, },
-        { accessor: 'email', label: 'Email', priorityLevel: 3, position: 3, minWidth: 250, CustomComponent: Button, },
-        { accessor: 'address', label: 'Address', priorityLevel: 4, position: 4, minWidth: 150, },
-        { accessor: 'city', label: 'City', priorityLevel: 9, position: 5, minWidth: 120, },
-        { accessor: 'state', label: 'State', priorityLevel: 6, position: 6, minWidth: 100, },
-        { accessor: 'country', label: 'Country', priorityLevel: 8, position: 7, minWidth: 120, },
-        { accessor: 'zipCode', label: 'Zip Code', priorityLevel: 2, position: 8, minWidth: 50, CustomComponent: Link, },
-        { accessor: 'bio', label: 'Bio', priorityLevel: 5, position: 9, minWidth: 300, },
+        { accessor: 'age', label: 'Age', priorityLevel: 3, position: 3, minWidth: 150, },
+        { accessor: 'email', label: 'Email', priorityLevel: 3, position: 4, minWidth: 250, CustomComponent: Button, },
+        { accessor: 'address', label: 'Address', priorityLevel: 4, position: 5, minWidth: 150, },
+        { accessor: 'city', label: 'City', priorityLevel: 9, position: 6, minWidth: 120, },
+        { accessor: 'state', label: 'State', priorityLevel: 6, position: 7, minWidth: 100, },
+        { accessor: 'country', label: 'Country', priorityLevel: 8, position: 8, minWidth: 120, },
+        { accessor: 'zipCode', label: 'Zip Code', priorityLevel: 2, position: 9, minWidth: 50, CustomComponent: Link, },
+        { accessor: 'bio', label: 'Bio', priorityLevel: 5, position: 10, minWidth: 300, },
     ]
 };
 
@@ -70,14 +73,15 @@ export const sortableCoulmns = () => {
     return [
         { accessor: 'firstName', label: 'First Name', priorityLevel: 1, position: 1, minWidth: 150, sortable: true },
         { accessor: 'lastName', label: 'Last Name', priorityLevel: 2, position: 2, minWidth: 150, sortable: true },
-        { accessor: 'email', label: 'Email', priorityLevel: 3, position: 3, minWidth: 250, },
-        { accessor: 'address', label: 'Address', priorityLevel: 4, position: 4, minWidth: 150, },
-        { accessor: 'date', label: 'Date', priorityLevel: 3, position: 6, minWidth: 150, sortType: 'date', },
-        { accessor: 'city', label: 'City', priorityLevel: 9, position: 5, minWidth: 120, sortable: false },
-        { accessor: 'state', label: 'State', priorityLevel: 6, position: 6, minWidth: 100, sortable: false },
-        { accessor: 'country', label: 'Country', priorityLevel: 8, position: 7, minWidth: 120, },
-        { accessor: 'zipCode', label: 'Zip Code', priorityLevel: 7, position: 8, minWidth: 50, sortable: true },
-        { accessor: 'bio', label: 'Bio', priorityLevel: 5, position: 9, minWidth: 300, sortable: false },
+        { accessor: 'age', label: 'Age', priorityLevel: 3, position: 3, minWidth: 150, sortable: true },
+        { accessor: 'email', label: 'Email', priorityLevel: 3, position: 4, minWidth: 250, },
+        { accessor: 'address', label: 'Address', priorityLevel: 4, position: 5, minWidth: 150, },
+        { accessor: 'date', label: 'Date', priorityLevel: 3, position: 7, minWidth: 150, sortType: 'date', },
+        { accessor: 'city', label: 'City', priorityLevel: 9, position: 6, minWidth: 120, sortable: false },
+        { accessor: 'state', label: 'State', priorityLevel: 6, position: 8, minWidth: 100, sortable: false },
+        { accessor: 'country', label: 'Country', priorityLevel: 8, position: 10, minWidth: 120, },
+        { accessor: 'zipCode', label: 'Zip Code', priorityLevel: 7, position: 9, minWidth: 50, sortable: true },
+        { accessor: 'bio', label: 'Bio', priorityLevel: 5, position: 11, minWidth: 300, sortable: false },
     ]
 };
 
@@ -117,7 +121,7 @@ export const paginationListenerProps = {
     rowSize: 5,
     showPagination: true,
     rows: generateFakeData({ totalRows: 20 }),
-    paginationEventListener: ({ pagination }) => console.log(`I am on page ${ pagination.currentPage } of ${ pagination.totalPages }`)
+    paginationEventListener: ({ pagination }) => console.log(`I am on page ${pagination.currentPage} of ${pagination.totalPages}`)
 };
 
 export const sortableColumnsProps = {
@@ -157,4 +161,68 @@ export const unsorted = {
         return column;
     }),
     rows: generateFakeData({ totalRows: 1000 })
+};
+
+export const footerCallbackProps = {
+    columns: getColumns(),
+    rows: generateFakeData({ totalRows: 1000 }),
+    showPagination: true,
+    showSearch: true,
+    footerCallback: {
+        firstName: ({currentPage}) => (
+            `The longest name is:
+            ${currentPage.values.reduce((preName, currName) => preName.length > currName.length ? preName : currName)} 
+        `),
+        age: ({ currentPage, allPages }) => (
+            `Total age of current page: ${currentPage.total}
+            </br>
+            Avg: ${currentPage.values.reduce((b, c) => b + c) / currentPage.values.length}
+            </br> 
+            Max: ${currentPage.values.reduce((b, c) => b > c ? b : c)}
+            </br> 
+            Min: ${currentPage.values.reduce((b, c) => b < c ? b : c)}
+            </br>
+            <hr>
+            Total age of all pages: ${allPages.total}
+            </br>
+            Avg: ${allPages.values.reduce((b, c) => b + c) / allPages.values.length}
+            </br> 
+            Max: ${allPages.values.reduce((b, c) => b > c ? b : c)}
+            </br> 
+            Min: ${allPages.values.reduce((b, c) => b < c ? b : c)}
+            `
+        ),
+    }
+};
+
+export const CustomComponentAndfooterCallbackProps = {
+    columns: getColumnsCustomComponents(),
+    rows: generateFakeData({ totalRows: 1000 }),
+    callbacks: { email: onClickPressed, zipCode: linkUrl },
+    footerCallback: {
+        firstName: ({currentPage}) => (
+            `The longest name is:
+            ${currentPage.values.reduce((preName, currName) => preName.length > currName.length ? preName : currName)} 
+        `),
+        age: ({ currentPage, allPages }) => (
+            `Total age of current page: ${currentPage.total}
+            </br>
+            Avg: ${currentPage.values.reduce((b, c) => b + c) / currentPage.values.length}
+            </br> 
+            Max: ${currentPage.values.reduce((b, c) => b > c ? b : c)}
+            </br> 
+            Min: ${currentPage.values.reduce((b, c) => b < c ? b : c)}
+            </br>
+            <hr>
+            Total age of all pages: ${allPages.total}
+            </br>
+            Avg: ${allPages.values.reduce((b, c) => b + c) / allPages.values.length}
+            </br> 
+            Max: ${allPages.values.reduce((b, c) => b > c ? b : c)}
+            </br> 
+            Min: ${allPages.values.reduce((b, c) => b < c ? b : c)}
+            `
+        ),
+    }
+
 };
