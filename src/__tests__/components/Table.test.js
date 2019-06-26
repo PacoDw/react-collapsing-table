@@ -272,4 +272,18 @@ describe('Table', () => {
         expect(wrapper.state().columns.length).toBe(4)
         expect(wrapper.find('thead th')).toHaveLength(4)
     });
+
+    it('should show search icon when the input field is empty', () => {
+        instance.toggleSearchInputIcons();
+        expect(wrapper.state().showSearchIcon).toBe(true);
+        expect(wrapper.state().showClearIcon).toBe(false);
+    });
+
+    it('should show clear icon when the input field is not empty', () => {
+        const searchValue = "paul";
+
+        instance.toggleSearchInputIcons(searchValue);
+        expect(wrapper.state().showSearchIcon).toBe(false);
+        expect(wrapper.state().showClearIcon).toBe(true);
+    });
 });

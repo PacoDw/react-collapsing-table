@@ -20,12 +20,22 @@ const Rows = ({ rows, visibleColumns, hiddenColumns, expandRow, callbacks, icons
                      columns={ hiddenColumns }
                      callbacks={ callbacks }
                      colspan={ visibleColumns.length } /> : null), []);
-
-    return (
-        <tbody>
-        { tableRows }
-        </tbody>
-    );
+    
+    if (tableRows.length > 0) {
+        return (
+            <tbody>
+            { tableRows }
+            </tbody>
+        );
+    } else {
+        return (
+            <tbody>
+                <tr className="no-results">
+                    <td>Sorry, your search did not return any results. Please try again.</td>
+                </tr>
+            </tbody>
+        );
+    } 
 };
 
 Rows.propTypes = RowsPropType;

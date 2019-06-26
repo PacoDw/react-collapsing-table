@@ -69,17 +69,18 @@
 }
 
 .react-collapsible-theme .react-collapsible-search .react-collapsible-clear {
-    color: #009cde;
     border: 0;
-    background-color: #fff;
-    font-size: 1.4rem;
-    margin-left: .8rem;
+    background-color: transparent;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0;
 }
 
 .react-collapsible-theme .react-collapsible-search input {
     border: 0;
     border-bottom: 1px #009cde solid;
-    width: 20rem;
+    width: 100%;
     height: 2rem;
     font-size: 1.4rem;
     font-weight: 200;
@@ -87,6 +88,17 @@
 
 .react-collapsible-theme .react-collapsible-search input::placeholder {
     color: #858DA3;
+}
+
+.react-collapsible-theme .react-collapsible-search .search-input {
+    display: inline-block;
+    position: relative;
+}
+
+.react-collapsible-theme .react-collapsible-search .search-input .search-icon {
+    position: absolute;
+    right: -2px;
+    top: 0;
 }
 
 .react-collapsible-theme .brand-primary-light {

@@ -341,6 +341,22 @@ describe('Icon', () => {
         expect(chevronRights.length).toBe(1);
     });
 
+    it('should return a search icon', () => {
+        props = { name: 'search', icons: null };
+        wrapper = shallow(actions.getIcon(props));
+        const search = wrapper.find('MdSearch');
+
+        expect(search.length).toBe(1);
+    });
+
+    it('should return a clear icon', () => {
+        props = { name: 'clear', icons: null };
+        wrapper = shallow(actions.getIcon(props));
+        const clear = wrapper.find('TiDeleteOutline');
+
+        expect(clear.length).toBe(1);
+    });
+
     it('should return no icons', () => {
         props = { icons: null };
         wrapper = shallow(actions.getIcon(props));
@@ -351,6 +367,8 @@ describe('Icon', () => {
         const CaretDowns = wrapper.find('FaCaretUp');
         const chevronLefts = wrapper.find('FaChevronLeft');
         const chevronRights = wrapper.find('FaChevronRight');
+        const search = wrapper.find('MdSearch');
+        const clear = wrapper.find('TiDeleteOutline');
 
         expect(chevronRights.length).toBe(0);
         expect(chevronLefts.length).toBe(0);
@@ -358,6 +376,8 @@ describe('Icon', () => {
         expect(CaretUps.length).toBe(0);
         expect(arrowDowns.length).toBe(0);
         expect(arrowUps.length).toBe(0);
+        expect(search.length).toBe(0);
+        expect(clear.length).toBe(0);
     });
 
     it('should be able to call the on click funtion', () => {

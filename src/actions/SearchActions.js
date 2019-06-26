@@ -78,3 +78,19 @@ export const clearSearch = ({ state, initialRows=[] }) => {
       pagination: { ...state.pagination, currentPage: 1, }
     };
 };
+
+export const toggleSearchInputIcons = ({ searchString, state }) => {
+    if (searchString) {
+        return {
+            ...state,
+            showSearchIcon: false,
+            showClearIcon: true,
+        };
+    } else {
+        return {
+            ...state,
+            showSearchIcon: true,
+            showClearIcon: false,
+        };
+    }
+};

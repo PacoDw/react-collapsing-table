@@ -458,4 +458,36 @@ describe('Search Actions', () => {
 
         expect(actions.clearSearch(given)).toEqual(expected);
     });
+
+    it('should show search icon when the input field is empty', () => {
+        const given = {
+            state: {
+                showSearchIcon: false,
+                showClearIcon: true,
+            },
+            searchString: '',
+        };
+        const expected = {
+            showSearchIcon: true,
+            showClearIcon: false,
+        };
+
+        expect(actions.toggleSearchInputIcons(given)).toEqual(expected);
+    });
+
+    it('should show clear icon when the input field is not empty', () => {
+        const given = {
+            state: {
+                showSearchIcon: true,
+                showClearIcon: false,
+            },
+            searchString: 'paul',
+        };
+        const expected = {
+            showSearchIcon: false,
+            showClearIcon: true,
+        };
+
+        expect(actions.toggleSearchInputIcons(given)).toEqual(expected);
+    });
 });

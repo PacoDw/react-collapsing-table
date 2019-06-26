@@ -7,6 +7,8 @@ import CaretUp from 'react-icons/lib/fa/caret-up';
 import CaretDown from 'react-icons/lib/fa/caret-down';
 import ChevronLeft from 'react-icons/lib/fa/chevron-left';
 import ChevronRight from 'react-icons/lib/fa/chevron-right';
+import SearchIcon from 'react-icons/lib/md/search';
+import ClearIcon from 'react-icons/lib/ti/delete-outline';
 
 export const getIcon = ({ onClick, name='', size=16 }) => {
     switch (name) {
@@ -22,6 +24,10 @@ export const getIcon = ({ onClick, name='', size=16 }) => {
             return <span className="arrow-left"><ChevronLeft onClick={ onClick } size={ size } className="brand-primary-light" /></span>;
         case 'rightChevron':
             return <span className="arrow-right"><ChevronRight onClick={ onClick } size={ size } className="brand-primary-light" /></span>;
+        case 'search':
+            return <span className="search-icon"><SearchIcon size={ size } className="brand-primary-light" /></span>;
+        case 'clear':
+            return <span className="clear-icon"><ClearIcon size={ size } className="brand-primary-light" /></span>;    
         default:
             return <span />;
     }
