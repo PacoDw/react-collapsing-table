@@ -69,7 +69,7 @@ export class Table extends Component {
             id,
             theme,
             totalFooter: {},
-            footerRow:{}
+            footerRow:{},
             showSearchIcon,
             showClearIcon,
         };
