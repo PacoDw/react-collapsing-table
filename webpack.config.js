@@ -1,7 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
     entry: './src/index.js',
     output: {
@@ -37,7 +37,9 @@ module.exports = {
         'react': 'commonjs react' // this line is just to use the React dependency of our parent-testing-project instead of using our own React.
     },
     plugins: [
-        new ExtractTextPlugin("react-table.css"),
+        new MiniCssExtractPlugin({
+            filename: "react-table.css"
+        }),
         new webpack.DefinePlugin({
             // A common mistake is not stringifying the "production" string.
             'process.env.NODE_ENV': JSON.stringify('production')
